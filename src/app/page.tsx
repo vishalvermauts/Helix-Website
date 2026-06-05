@@ -213,25 +213,46 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06]">
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-colors">
               <Bug className="h-8 w-8 text-rose-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Automated Triage</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Autonomously reproduce, diagnose, and patch GitHub issues by dynamically deploying self-healing bug fix agents.
+                Autonomously reproduce, diagnose, and patch GitHub issues by dynamically deploying self-healing bug fix agents directly into the repository.
               </p>
             </div>
-            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06]">
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-purple-500/30 transition-colors">
               <Brain className="h-8 w-8 text-purple-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Diagnostic Labs</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Spin up specialized lab environments where Swarm Orchestrators execute persistent, multi-day research tasks.
+                Spin up specialized lab environments where Swarm Orchestrators execute persistent, multi-day research tasks without human intervention.
               </p>
             </div>
-            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06]">
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-colors">
               <Activity className="h-8 w-8 text-emerald-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Security Auditing</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Continuously scan repositories for vulnerabilities. If a zero-day is found, agents draft and submit PRs instantly.
+                Continuously scan repositories for vulnerabilities. If a zero-day is found, agents draft, test, and submit pull requests instantly.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-blue-500/30 transition-colors">
+              <Zap className="h-8 w-8 text-blue-400 mb-6" />
+              <h3 className="text-xl font-semibold text-white mb-3">Performance Tuning</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Deploy agents to profile codebases, identify memory leaks and CPU bottlenecks, and safely refactor critical paths for optimal execution.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-amber-500/30 transition-colors">
+              <Code2 className="h-8 w-8 text-amber-400 mb-6" />
+              <h3 className="text-xl font-semibold text-white mb-3">Legacy Migration</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Migrate outdated monolithic code to modern frameworks. The engine understands dependencies, rewrites logic, and enforces unit test coverage.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-cyan-500/30 transition-colors">
+              <Workflow className="h-8 w-8 text-cyan-400 mb-6" />
+              <h3 className="text-xl font-semibold text-white mb-3">Infra Generation</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Synthesize complex Terraform, Docker, and Kubernetes configurations on the fly by providing high-level architectural requirements to the Swarm.
               </p>
             </div>
           </div>
@@ -245,28 +266,43 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-all">
+            <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-all flex flex-col h-full">
               <Shield className="h-8 w-8 text-emerald-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Tier 1: Prevention</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-400 leading-relaxed mb-6">
                 Dynamic Skill RAG injects strict semantic constraints before a single line of code is written, ensuring adherence to domain knowledge and avoiding generic hallucinations.
               </p>
+              <ul className="text-sm text-gray-500 space-y-2 mt-auto">
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Retrieval-Augmented Logic</span></li>
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Skill Injection (RAG)</span></li>
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>System-Prompt Governance</span></li>
+              </ul>
             </div>
             
-            <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-cyan-500/30 transition-all">
+            <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-cyan-500/30 transition-all flex flex-col h-full">
               <Code2 className="h-8 w-8 text-cyan-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Tier 2: Enforcement</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                The Planner Agent acts as a Staff Engineer, explicitly wrapping LLM outputs in robust `try/except` loops and enforcing sandboxed execution directories.
+              <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                The Planner Agent acts as a Staff Engineer, explicitly wrapping LLM outputs in robust `try/except` loops and enforcing strict sandboxed execution directories.
               </p>
+              <ul className="text-sm text-gray-500 space-y-2 mt-auto">
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><span>AST Transformation</span></li>
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><span>Secure Sandbox Directories</span></li>
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span><span>Import Whitelisting</span></li>
+              </ul>
             </div>
 
-            <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-blue-500/30 transition-all">
+            <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-blue-500/30 transition-all flex flex-col h-full">
               <Workflow className="h-8 w-8 text-blue-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Tier 3: Correction</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-400 leading-relaxed mb-6">
                 The Swarm Orchestrator intercepts runtime tracebacks and routes syntax errors back into a closed-loop self-healing mechanism, recovering silently without human input.
               </p>
+              <ul className="text-sm text-gray-500 space-y-2 mt-auto">
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span>Runtime Traceback Parsing</span></li>
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span>Automated Self-Healing Loop</span></li>
+                <li className="flex items-center space-x-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span>Agent Mutation & Patching</span></li>
+              </ul>
             </div>
           </div>
         </section>
@@ -305,6 +341,100 @@ export default function Home() {
                 <p>cd Helix-Brain-Diagnostic-Lab</p>
                 <p>npx serve -l 3000</p>
                 <p className="text-emerald-400 mt-4"># Connect via the auto-generated PyNgrok URL!</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Diagnostic Lab Dedicated Section */}
+        <section id="lab" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/[0.06]">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center justify-center p-3 bg-purple-500/10 rounded-xl mb-6">
+                <Terminal className="h-6 w-6 text-purple-400" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
+                2. Diagnostic Lab (Frontend)
+              </h2>
+              <p className="text-gray-400 text-lg leading-relaxed mb-6 font-light">
+                The Helix Brain Diagnostic Lab acts as the visual command center for the entire agentic swarm. It provides real-time, high-fidelity observability into how the AI thinks, plans, and executes code.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-2 h-2 rounded-full bg-purple-400"></div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-white font-medium mb-1">Visual Architecture Rendering</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      Automatically maps the multi-agent neural network as it spins up, showing exactly which agents are communicating and sharing memory objects.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-white font-medium mb-1">Real-Time Traceback Triage</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      Watch the self-healing loop in action. The frontend captures Python exceptions live, streams the LLM's patching strategy, and updates the UI when tests pass.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+                  </div>
+                  <div className="ml-4">
+                    <h4 className="text-white font-medium mb-1">Sandboxed Testing Sandbox</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      Features a built-in terminal emulator that allows developers to manually trigger Swarm commands, inject new skills via the UI, and isolate agent outputs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Lab UI Mockup / Graphic */}
+            <div className="relative rounded-2xl border border-white/[0.08] bg-[#0a0a0a] shadow-2xl p-2 overflow-hidden aspect-square md:aspect-auto md:h-[600px] flex flex-col">
+              <div className="bg-[#111] px-4 py-3 flex items-center border-b border-white/[0.04] rounded-t-xl shrink-0">
+                <div className="flex space-x-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                </div>
+                <div className="mx-auto text-xs font-mono text-gray-500 flex items-center space-x-2">
+                  <span>helix_diagnostic_lab.app</span>
+                </div>
+              </div>
+              <div className="flex-1 p-6 relative">
+                {/* Abstract Node Graph */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-30">
+                  <svg viewBox="0 0 400 400" className="w-full h-full stroke-emerald-500/50" fill="none" strokeWidth="2">
+                    <circle cx="200" cy="200" r="100" strokeDasharray="4 4" className="animate-[spin_20s_linear_infinite]" />
+                    <circle cx="200" cy="200" r="150" strokeDasharray="2 6" className="animate-[spin_30s_linear_infinite_reverse]" />
+                    <path d="M200 100 L286 150 L286 250 L200 300 L114 250 L114 150 Z" className="stroke-purple-500/50" />
+                    <circle cx="200" cy="100" r="8" className="fill-purple-500" />
+                    <circle cx="286" cy="150" r="8" className="fill-emerald-500" />
+                    <circle cx="286" cy="250" r="8" className="fill-cyan-500" />
+                    <circle cx="200" cy="300" r="8" className="fill-rose-500" />
+                    <circle cx="114" cy="250" r="8" className="fill-blue-500" />
+                    <circle cx="114" cy="150" r="8" className="fill-amber-500" />
+                    <circle cx="200" cy="200" r="12" className="fill-white" />
+                  </svg>
+                </div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-[#111]/80 backdrop-blur border border-white/[0.08] p-4 rounded-xl">
+                    <div className="text-xs font-mono text-emerald-400 mb-2">[Memory Sync] 100%</div>
+                    <div className="h-2 w-full bg-white/[0.05] rounded-full overflow-hidden">
+                      <div className="h-full bg-emerald-400 w-full animate-pulse"></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
