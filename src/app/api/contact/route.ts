@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     if (error) {
       console.error('Supabase insertion error:', error);
       return NextResponse.json(
-        { error: 'Failed to submit form' },
+        { error: `Database error: ${error.message} - ${error.details || ''}` },
         { status: 500 }
       );
     }
