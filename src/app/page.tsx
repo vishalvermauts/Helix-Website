@@ -175,7 +175,7 @@ export default function Home() {
             
             <h1 className="text-6xl md:text-8xl font-bold text-white tracking-tighter leading-[1.1] mb-6">
               Autonomous Agentic <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-white to-cyan-400 animate-shine">
                 Compute, Redefined.
               </span>
             </h1>
