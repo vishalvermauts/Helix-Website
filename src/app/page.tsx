@@ -156,10 +156,10 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="relative z-10 pt-32 pb-24">
+      <main className="relative z-10 pt-24 pb-24">
         
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 pt-20 pb-32 text-center">
+        <section className="max-w-7xl mx-auto px-6 pt-10 pb-32 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
