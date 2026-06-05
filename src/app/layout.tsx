@@ -15,6 +15,22 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Helix Engine | Autonomous Agentic Compute",
   description: "The Helix Engine is a state-of-the-art framework leveraging a rigorous Three-Tier Defensive Architecture to write, execute, and self-heal Python and Node.js agents dynamically.",
+  keywords: ["Autonomous AI", "Agentic Compute", "AI Swarm", "Code Generation", "Python Agents", "Helix Engine"],
+  authors: [{ name: "Helix Ecosystem" }],
+  openGraph: {
+    title: "Helix Engine | Autonomous Agentic Compute",
+    description: "State-of-the-art framework leveraging a rigorous Three-Tier Defensive Architecture to write, execute, and self-heal agents dynamically.",
+    url: "https://helixengine.app",
+    siteName: "Helix Engine",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Helix Engine | Autonomous Agentic Compute",
+    description: "Write, execute, and self-heal Python and Node.js agents dynamically on the fly.",
+  },
+  metadataBase: new URL('https://helixengine.app'),
 };
 
 export default function RootLayout({

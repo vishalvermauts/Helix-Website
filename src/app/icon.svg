@@ -1,0 +1,19 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Glowing shadow approximation using a drop shadow filter -->
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- The background circle (bg-emerald-500/20 with border-emerald-500/50) -->
+  <circle cx="128" cy="128" r="110" fill="rgba(16, 185, 129, 0.2)" stroke="rgba(16, 185, 129, 0.5)" stroke-width="8" filter="url(#glow)"/>
+
+  <!-- The Zap icon (text-emerald-400 #34d399) -->
+  <!-- Scaled up and centered to match the h-4 w-4 ratio inside an h-8 w-8 container (i.e. half the width) -->
+  <g transform="translate(64, 64) scale(5.333)">
+    <!-- Original viewBox 0 0 24 24, so scale by 128/24 = 5.333 -->
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
