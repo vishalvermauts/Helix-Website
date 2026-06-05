@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Terminal, Shield, Workflow, Code2, Zap, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const GithubIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -10,6 +11,80 @@ const GithubIcon = () => (
     <path d="M9 18c-4.51 2-5-2-7-2"/>
   </svg>
 );
+
+const TerminalAnimation = () => {
+  const [lines, setLines] = useState<string[]>([]);
+  const codeLines = [
+    "> Initialize Helix Engine v2.0",
+    "[System] Booting Swarm Orchestrator...",
+    "[Router] Incoming payload: 'Generate Security Scanner'",
+    "[Memory] Injecting Tier 1 RAG skills: security_agents.md",
+    "[Planner] Blueprint generated. Enforcing Sandbox restrictions.",
+    "> Executing Agent Synthesis...",
+    "[Agent] Writing github_scanner.py",
+    "✓ Code compiled successfully.",
+    "[Test] Running automated security suite...",
+    "⚠ Exception caught: Subprocess timeout error.",
+    "[Orchestrator] Self-healing sequence initiated...",
+    "[Agent] Patching timeout constraints.",
+    "✓ Agent successfully deployed to /workspace/custom_agents."
+  ];
+
+  useEffect(() => {
+    let currentLine = 0;
+    const interval = setInterval(() => {
+      if (currentLine < codeLines.length) {
+        setLines(prev => [...prev, codeLines[currentLine]]);
+        currentLine++;
+      } else {
+        // Reset animation after a pause
+        setTimeout(() => {
+          setLines([]);
+          currentLine = 0;
+        }, 3000);
+      }
+    }, 800);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="w-full max-w-3xl mx-auto mt-16 text-left rounded-xl overflow-hidden bg-[#0a0a0a] border border-white/[0.08] shadow-2xl shadow-emerald-500/10 relative">
+      {/* Terminal Header */}
+      <div className="bg-[#111] px-4 py-3 flex items-center border-b border-white/[0.04]">
+        <div className="flex space-x-2">
+          <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+        </div>
+        <div className="mx-auto text-xs font-mono text-gray-500 flex items-center space-x-2">
+          <Terminal className="w-3 h-3" />
+          <span>helix_orchestrator.sh</span>
+        </div>
+      </div>
+      {/* Terminal Body */}
+      <div className="p-6 font-mono text-sm leading-relaxed h-[300px] overflow-hidden relative">
+        {lines.map((line, i) => (
+          <motion.div 
+            key={i}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className={`mb-2 ${line.startsWith('>') ? 'text-white font-medium' : line.startsWith('✓') ? 'text-emerald-400' : line.startsWith('⚠') ? 'text-amber-400' : 'text-gray-400'}`}
+          >
+            {line}
+          </motion.div>
+        ))}
+        {/* Blinking Cursor */}
+        <motion.div 
+          animate={{ opacity: [1, 0, 1] }} 
+          transition={{ repeat: Infinity, duration: 0.8 }}
+          className="w-2 h-4 bg-emerald-400 mt-2 inline-block"
+        />
+        {/* Subtle Fade at Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -75,6 +150,15 @@ export default function Home() {
                 View Architecture
               </a>
             </div>
+            
+            {/* Live Terminal Animation Component */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+            >
+              <TerminalAnimation />
+            </motion.div>
           </motion.div>
         </section>
 
