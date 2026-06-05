@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, Shield, Workflow, Code2, Zap, ArrowRight, Bug, Brain, Activity, Mail } from "lucide-react";
+import { Terminal, Shield, Workflow, Code2, Zap, ArrowRight, Bug, Brain, Activity, Mail, Cpu, Globe, Network, Bot } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -145,6 +145,7 @@ export default function Home() {
           </Link>
           <div className="hidden md:flex space-x-6 items-center text-sm font-medium">
             <Link href="#use-cases" className="text-gray-400 hover:text-white transition-colors">Use Cases</Link>
+            <Link href="#features" className="text-gray-400 hover:text-white transition-colors">Features</Link>
             <Link href="#architecture" className="text-gray-400 hover:text-white transition-colors">Architecture</Link>
             <Link href="#installation" className="text-gray-400 hover:text-white transition-colors">Setup</Link>
             <Link href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link>
@@ -258,7 +259,49 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Feature Grid */}
+        {/* Features Section */}
+        <section id="features" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/[0.06]">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Core Engine Capabilities</h2>
+            <p className="text-gray-400 max-w-2xl text-lg font-light">Built for scale, the Helix Engine provides everything you need to run autonomous swarms in production.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-colors group">
+              <Bot className="h-8 w-8 text-emerald-400 mb-6 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-semibold text-white mb-3">Autonomous Agent Generation</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Request complex agents (Scrapers, Documenters, Security Scanners) and the engine will scaffold, write, test, and save them automatically.
+              </p>
+            </div>
+            
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-cyan-500/30 transition-colors group">
+              <Globe className="h-8 w-8 text-cyan-400 mb-6 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-semibold text-white mb-3">Webhook Orchestration</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Fully decoupled HTTP design. Expose the endpoint and easily integrate with platforms like Telegram, Discord, or frontend dashboards.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-purple-500/30 transition-colors group">
+              <Network className="h-8 w-8 text-purple-400 mb-6 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-semibold text-white mb-3">Dynamic Semantic Routing</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                The Triage Router automatically classifies inbound requests to assign the optimal model size and context length for cost-efficiency.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-rose-500/30 transition-colors group">
+              <Cpu className="h-8 w-8 text-rose-400 mb-6 group-hover:scale-110 transition-transform" />
+              <h3 className="text-xl font-semibold text-white mb-3">Self-Healing Loop</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                If an agent compiles with a syntax error, the orchestrator catches it and feeds the error back into the LLM for silent self-correction.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Architecture Section */}
         <section id="architecture" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/[0.06]">
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">The Three-Tier Defense</h2>
