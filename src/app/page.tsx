@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, Shield, Workflow, Code2, Zap, ArrowRight } from "lucide-react";
+import { Terminal, Shield, Workflow, Code2, Zap, ArrowRight, Bug, Brain, Activity, Mail } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -96,15 +96,17 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 inset-x-0 z-50 border-b border-white/[0.06] bg-[#050505]/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <div className="h-6 w-6 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center">
               <Zap className="h-3 w-3 text-emerald-400" />
             </div>
             <span className="font-semibold text-white tracking-tight">Helix Ecosystem</span>
-          </div>
-          <div className="flex space-x-4 items-center text-sm font-medium">
+          </Link>
+          <div className="hidden md:flex space-x-6 items-center text-sm font-medium">
+            <Link href="#use-cases" className="text-gray-400 hover:text-white transition-colors">Use Cases</Link>
             <Link href="#architecture" className="text-gray-400 hover:text-white transition-colors">Architecture</Link>
             <Link href="#installation" className="text-gray-400 hover:text-white transition-colors">Setup</Link>
+            <Link href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link>
             <a href="https://github.com/vishalvermauts/Helix-Engine" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-white bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.06] px-4 py-2 rounded-full transition-all">
               <GithubIcon />
               <span>GitHub</span>
@@ -160,6 +162,38 @@ export default function Home() {
               <TerminalAnimation />
             </motion.div>
           </motion.div>
+        </section>
+
+        {/* Use Cases Section */}
+        <section id="use-cases" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/[0.06]">
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Core Use Cases</h2>
+            <p className="text-gray-400 max-w-2xl text-lg font-light">The Helix Engine is built for autonomous, complex problem-solving scenarios.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06]">
+              <Bug className="h-8 w-8 text-rose-400 mb-6" />
+              <h3 className="text-xl font-semibold text-white mb-3">Automated Triage</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Autonomously reproduce, diagnose, and patch GitHub issues by dynamically deploying self-healing bug fix agents.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06]">
+              <Brain className="h-8 w-8 text-purple-400 mb-6" />
+              <h3 className="text-xl font-semibold text-white mb-3">Diagnostic Labs</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Spin up specialized lab environments where Swarm Orchestrators execute persistent, multi-day research tasks.
+              </p>
+            </div>
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06]">
+              <Activity className="h-8 w-8 text-emerald-400 mb-6" />
+              <h3 className="text-xl font-semibold text-white mb-3">Security Auditing</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Continuously scan repositories for vulnerabilities. If a zero-day is found, agents draft and submit PRs instantly.
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* Feature Grid */}
@@ -234,6 +268,19 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Contact Us Section */}
+        <section id="contact" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/[0.06] text-center">
+          <Mail className="h-12 w-12 text-gray-400 mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Get in Touch</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light mb-8">
+            Interested in deploying the Helix Ecosystem at an enterprise scale? Have questions about the Swarm Orchestrator? Reach out to us.
+          </p>
+          <a href="mailto:hello@helixengine.dev" className="inline-flex items-center space-x-2 px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors">
+            <Mail className="h-4 w-4" />
+            <span>Contact Support</span>
+          </a>
         </section>
 
       </main>
