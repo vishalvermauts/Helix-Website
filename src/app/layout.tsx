@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Helix Ecosystem | Autonomous Agentic Compute",
+  title: "Helix Engine | Autonomous Agentic Compute",
   description: "The Helix Engine is a state-of-the-art framework leveraging a rigorous Three-Tier Defensive Architecture to write, execute, and self-heal Python and Node.js agents dynamically.",
 };
 

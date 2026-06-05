@@ -138,10 +138,10 @@ export default function Home() {
       <nav className="fixed top-0 inset-x-0 z-50 border-b border-white/[0.06] bg-[#050505]/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-            <div className="h-6 w-6 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center">
-              <Zap className="h-3 w-3 text-emerald-400" />
+            <div className="h-8 w-8 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+              <Zap className="h-4 w-4 text-emerald-400" />
             </div>
-            <span className="font-semibold text-white tracking-tight">Helix Ecosystem</span>
+            <span className="font-bold text-lg text-white tracking-tight">Helix Engine</span>
           </Link>
           <div className="hidden md:flex space-x-6 items-center text-sm font-medium">
             <Link href="#use-cases" className="text-gray-400 hover:text-white transition-colors">Use Cases</Link>
@@ -523,7 +523,7 @@ export default function Home() {
       <footer className="border-t border-white/[0.06] bg-[#050505] py-12">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
           <p className="text-sm text-gray-500">
-            © 2026 Helix Engine Ecosystem. Open-source under the MIT License.
+            © 2026 Helix Engine. Open-source under the MIT License.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="https://github.com/vishalvermauts/Helix-Engine" className="text-gray-500 hover:text-white transition-colors">Backend GitHub</a>
