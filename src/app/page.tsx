@@ -12,35 +12,43 @@ const GithubIcon = () => (
   </svg>
 );
 
+const codeLines = [
+  "> Initialize Helix Engine v2.0",
+  "[System] Booting Swarm Orchestrator...",
+  "[Router] Incoming payload: 'Generate Security Scanner'",
+  "[Memory] Injecting Tier 1 RAG skills: security_agents.md",
+  "[Planner] Blueprint generated. Enforcing Sandbox restrictions.",
+  "> Executing Agent Synthesis...",
+  "[Agent] Writing github_scanner.py",
+  "✓ Code compiled successfully.",
+  "[Test] Running automated security suite...",
+  "⚠ Exception caught: Subprocess timeout error.",
+  "[Orchestrator] Self-healing sequence initiated...",
+  "[Agent] Patching timeout constraints.",
+  "✓ Agent successfully deployed to /workspace/custom_agents."
+];
+
 const TerminalAnimation = () => {
   const [lines, setLines] = useState<string[]>([]);
-  const codeLines = [
-    "> Initialize Helix Engine v2.0",
-    "[System] Booting Swarm Orchestrator...",
-    "[Router] Incoming payload: 'Generate Security Scanner'",
-    "[Memory] Injecting Tier 1 RAG skills: security_agents.md",
-    "[Planner] Blueprint generated. Enforcing Sandbox restrictions.",
-    "> Executing Agent Synthesis...",
-    "[Agent] Writing github_scanner.py",
-    "✓ Code compiled successfully.",
-    "[Test] Running automated security suite...",
-    "⚠ Exception caught: Subprocess timeout error.",
-    "[Orchestrator] Self-healing sequence initiated...",
-    "[Agent] Patching timeout constraints.",
-    "✓ Agent successfully deployed to /workspace/custom_agents."
-  ];
 
   useEffect(() => {
     let currentLine = 0;
+    let isResetting = false;
+
     const interval = setInterval(() => {
       if (currentLine < codeLines.length) {
-        setLines(prev => [...prev, codeLines[currentLine]]);
+        // Prevent pushing undefined if currentLine somehow gets out of bounds
+        if (codeLines[currentLine]) {
+          setLines(prev => [...prev, codeLines[currentLine]]);
+        }
         currentLine++;
-      } else {
+      } else if (!isResetting) {
+        isResetting = true;
         // Reset animation after a pause
         setTimeout(() => {
           setLines([]);
           currentLine = 0;
+          isResetting = false;
         }, 3000);
       }
     }, 800);
@@ -63,16 +71,19 @@ const TerminalAnimation = () => {
       </div>
       {/* Terminal Body */}
       <div className="p-6 font-mono text-sm leading-relaxed h-[300px] overflow-hidden relative">
-        {lines.map((line, i) => (
-          <motion.div 
-            key={i}
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className={`mb-2 ${line.startsWith('>') ? 'text-white font-medium' : line.startsWith('✓') ? 'text-emerald-400' : line.startsWith('⚠') ? 'text-amber-400' : 'text-gray-400'}`}
-          >
-            {line}
-          </motion.div>
-        ))}
+        {lines.map((line, i) => {
+          if (!line) return null;
+          return (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              className={`mb-2 ${line.startsWith('>') ? 'text-white font-medium' : line.startsWith('✓') ? 'text-emerald-400' : line.startsWith('⚠') ? 'text-amber-400' : 'text-gray-400'}`}
+            >
+              {line}
+            </motion.div>
+          );
+        })}
         {/* Blinking Cursor */}
         <motion.div 
           animate={{ opacity: [1, 0, 1] }} 
@@ -87,6 +98,36 @@ const TerminalAnimation = () => {
 };
 
 export default function Home() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit form');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err: unknown) {
+      setStatus('error');
+      setErrorMessage(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#050505] text-gray-200 selection:bg-emerald-500/30 font-sans overflow-hidden">
       
@@ -245,11 +286,10 @@ export default function Home() {
                 <span>1. Helix Engine (Backend)</span>
               </h3>
               <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-xl p-6 font-mono text-sm text-gray-300">
-                <p className="text-gray-500 mb-2"># Clone and start the FastAPI engine</p>
+                <p className="text-gray-500 mb-2"># Magical 1-Click Interactive Setup</p>
                 <p>git clone https://github.com/vishalvermauts/Helix-Engine.git</p>
                 <p>cd Helix-Engine</p>
-                <p>pip install -r requirements.txt</p>
-                <p>uvicorn server:app --host 0.0.0.0 --port 8000</p>
+                <p>bash setup.sh</p>
               </div>
             </div>
 
@@ -264,23 +304,87 @@ export default function Home() {
                 <p>git clone https://github.com/vishalvermauts/Helix-Brain-Diagnostic-Lab.git</p>
                 <p>cd Helix-Brain-Diagnostic-Lab</p>
                 <p>npx serve -l 3000</p>
-                <p className="text-emerald-400 mt-4"># Connect via cloudflared tunnel!</p>
+                <p className="text-emerald-400 mt-4"># Connect via the auto-generated PyNgrok URL!</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Contact Us Section */}
-        <section id="contact" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/[0.06] text-center">
-          <Mail className="h-12 w-12 text-gray-400 mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Get in Touch</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light mb-8">
-            Interested in deploying the Helix Ecosystem at an enterprise scale? Have questions about the Swarm Orchestrator? Reach out to us.
-          </p>
-          <a href="mailto:hello@helixengine.dev" className="inline-flex items-center space-x-2 px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors">
-            <Mail className="h-4 w-4" />
-            <span>Contact Support</span>
-          </a>
+        <section id="contact" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/[0.06]">
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <Mail className="h-12 w-12 text-emerald-400 mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Get in Touch</h2>
+            <p className="text-gray-400 text-lg font-light">
+              Interested in deploying the Helix Ecosystem at an enterprise scale? Have questions about the Swarm Orchestrator? Reach out to us.
+            </p>
+          </div>
+
+          <div className="max-w-xl mx-auto">
+            <form onSubmit={handleContactSubmit} className="bg-[#0a0a0a] border border-white/[0.06] rounded-2xl p-8 space-y-6 shadow-2xl shadow-emerald-500/5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2 text-left">
+                  <label htmlFor="name" className="text-sm font-medium text-gray-400">Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-[#111] border border-white/[0.08] rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-colors"
+                    placeholder="John Doe"
+                    disabled={status === 'loading'}
+                  />
+                </div>
+                <div className="space-y-2 text-left">
+                  <label htmlFor="email" className="text-sm font-medium text-gray-400">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-[#111] border border-white/[0.08] rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-colors"
+                    placeholder="john@example.com"
+                    disabled={status === 'loading'}
+                  />
+                </div>
+              </div>
+              <div className="space-y-2 text-left">
+                <label htmlFor="message" className="text-sm font-medium text-gray-400">Message</label>
+                <textarea 
+                  id="message" 
+                  rows={4}
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full bg-[#111] border border-white/[0.08] rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-colors resize-none"
+                  placeholder="How can we help you?"
+                  disabled={status === 'loading'}
+                ></textarea>
+              </div>
+
+              {status === 'error' && (
+                <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/20 text-rose-400 text-sm text-center">
+                  {errorMessage}
+                </div>
+              )}
+              {status === 'success' && (
+                <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm text-center">
+                  Message sent successfully! We&apos;ll get back to you soon.
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                disabled={status === 'loading' || status === 'success'}
+                className="w-full bg-white text-black font-semibold rounded-lg px-4 py-4 hover:bg-gray-200 transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <span>{status === 'loading' ? 'Sending...' : status === 'success' ? 'Sent!' : 'Send Message'}</span>
+                {status !== 'loading' && status !== 'success' && <ArrowRight className="h-4 w-4" />}
+              </button>
+            </form>
+          </div>
         </section>
 
       </main>
