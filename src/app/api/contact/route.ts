@@ -39,10 +39,10 @@ export async function POST(request: Request) {
       { success: true, message: 'Form submitted successfully!', data },
       { status: 200 }
     );
-  } catch (err) {
+  } catch (err: any) {
     console.error('Unexpected error:', err);
     return NextResponse.json(
-      { error: 'An unexpected error occurred' },
+      { error: err.message || 'An unexpected error occurred' },
       { status: 500 }
     );
   }
