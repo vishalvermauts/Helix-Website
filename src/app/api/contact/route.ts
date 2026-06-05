@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     try {
       await resend.emails.send({
         from: 'Helix Engine <onboarding@resend.dev>',
-        to: 'vishalvr28@gmail.com',
+        to: process.env.CONTACT_EMAIL || 'vishalvr28@gmail.com',
         subject: `New Contact Form Submission: ${name}`,
         replyTo: email,
         html: `
@@ -62,10 +62,11 @@ export async function POST(request: Request) {
       { success: true, message: 'Form submitted successfully!', data },
       { status: 200 }
     );
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('Unexpected error:', err);
+    const errorMessage = err instanceof Error ? err.message : 'An unexpected error occurred';
     return NextResponse.json(
-      { error: err.message || 'An unexpected error occurred' },
+      { error: errorMessage },
       { status: 500 }
     );
   }

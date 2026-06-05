@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Helix Engine | Autonomous Agentic Compute",
     description: "Write, execute, and self-heal Python and Node.js agents dynamically on the fly.",
   },
-  metadataBase: new URL('https://helixengine.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://helixengine.app'),
 };
 
 export default function RootLayout({

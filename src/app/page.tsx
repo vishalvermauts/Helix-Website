@@ -65,7 +65,7 @@ const TerminalAnimation = () => {
           <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
         </div>
         <div className="mx-auto text-xs font-mono text-gray-500 flex items-center space-x-2">
-          <Terminal className="w-3 h-3" />
+          <Terminal aria-hidden="true" className="w-3 h-3" />
           <span>helix_orchestrator.sh</span>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <div className="h-8 w-8 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              <Zap className="h-4 w-4 text-emerald-400" />
+              <Zap aria-hidden="true" className="h-4 w-4 text-emerald-400" />
             </div>
             <span className="font-bold text-lg text-white tracking-tight">Helix Engine</span>
           </Link>
@@ -188,7 +188,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="#installation" className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-colors flex items-center justify-center space-x-2">
                 <span>Start Building</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
               </a>
               <a href="#architecture" className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent border border-white/[0.1] text-white font-medium hover:bg-white/[0.05] transition-colors">
                 View Architecture
@@ -215,42 +215,42 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-colors">
-              <Bug className="h-8 w-8 text-rose-400 mb-6" />
+              <Bug aria-hidden="true" className="h-8 w-8 text-rose-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Automated Triage</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Autonomously reproduce, diagnose, and patch GitHub issues by dynamically deploying self-healing bug fix agents directly into the repository.
               </p>
             </div>
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-purple-500/30 transition-colors">
-              <Brain className="h-8 w-8 text-purple-400 mb-6" />
+              <Brain aria-hidden="true" className="h-8 w-8 text-purple-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Diagnostic Labs</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Spin up specialized lab environments where Swarm Orchestrators execute persistent, multi-day research tasks without human intervention.
               </p>
             </div>
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-colors">
-              <Activity className="h-8 w-8 text-emerald-400 mb-6" />
+              <Activity aria-hidden="true" className="h-8 w-8 text-emerald-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Security Auditing</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Continuously scan repositories for vulnerabilities. If a zero-day is found, agents draft, test, and submit pull requests instantly.
               </p>
             </div>
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-blue-500/30 transition-colors">
-              <Zap className="h-8 w-8 text-blue-400 mb-6" />
+              <Zap aria-hidden="true" className="h-8 w-8 text-blue-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Performance Tuning</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Deploy agents to profile codebases, identify memory leaks and CPU bottlenecks, and safely refactor critical paths for optimal execution.
               </p>
             </div>
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-amber-500/30 transition-colors">
-              <Code2 className="h-8 w-8 text-amber-400 mb-6" />
+              <Code2 aria-hidden="true" className="h-8 w-8 text-amber-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Legacy Migration</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Migrate outdated monolithic code to modern frameworks. The engine understands dependencies, rewrites logic, and enforces unit test coverage.
               </p>
             </div>
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-cyan-500/30 transition-colors">
-              <Workflow className="h-8 w-8 text-cyan-400 mb-6" />
+              <Workflow aria-hidden="true" className="h-8 w-8 text-cyan-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Infra Generation</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Synthesize complex Terraform, Docker, and Kubernetes configurations on the fly by providing high-level architectural requirements to the Swarm.
@@ -268,7 +268,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-colors group">
-              <Bot className="h-8 w-8 text-emerald-400 mb-6 group-hover:scale-110 transition-transform" />
+              <Bot aria-hidden="true" className="h-8 w-8 text-emerald-400 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-semibold text-white mb-3">Autonomous Agent Generation</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Request complex agents (Scrapers, Documenters, Security Scanners) and the engine will scaffold, write, test, and save them automatically.
@@ -276,7 +276,7 @@ export default function Home() {
             </div>
             
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-cyan-500/30 transition-colors group">
-              <Globe className="h-8 w-8 text-cyan-400 mb-6 group-hover:scale-110 transition-transform" />
+              <Globe aria-hidden="true" className="h-8 w-8 text-cyan-400 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-semibold text-white mb-3">Webhook Orchestration</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Fully decoupled HTTP design. Expose the endpoint and easily integrate with platforms like Telegram, Discord, or frontend dashboards.
@@ -284,7 +284,7 @@ export default function Home() {
             </div>
 
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-purple-500/30 transition-colors group">
-              <Network className="h-8 w-8 text-purple-400 mb-6 group-hover:scale-110 transition-transform" />
+              <Network aria-hidden="true" className="h-8 w-8 text-purple-400 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-semibold text-white mb-3">Dynamic Semantic Routing</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 The Triage Router automatically classifies inbound requests to assign the optimal model size and context length for cost-efficiency.
@@ -292,7 +292,7 @@ export default function Home() {
             </div>
 
             <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-rose-500/30 transition-colors group">
-              <Cpu className="h-8 w-8 text-rose-400 mb-6 group-hover:scale-110 transition-transform" />
+              <Cpu aria-hidden="true" className="h-8 w-8 text-rose-400 mb-6 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-semibold text-white mb-3">Self-Healing Loop</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 If an agent compiles with a syntax error, the orchestrator catches it and feeds the error back into the LLM for silent self-correction.
@@ -310,7 +310,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-emerald-500/30 transition-all flex flex-col h-full">
-              <Shield className="h-8 w-8 text-emerald-400 mb-6" />
+              <Shield aria-hidden="true" className="h-8 w-8 text-emerald-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Tier 1: Prevention</h3>
               <p className="text-sm text-gray-400 leading-relaxed mb-6">
                 Dynamic Skill RAG injects strict semantic constraints before a single line of code is written, ensuring adherence to domain knowledge and avoiding generic hallucinations.
@@ -323,7 +323,7 @@ export default function Home() {
             </div>
             
             <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-cyan-500/30 transition-all flex flex-col h-full">
-              <Code2 className="h-8 w-8 text-cyan-400 mb-6" />
+              <Code2 aria-hidden="true" className="h-8 w-8 text-cyan-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Tier 2: Enforcement</h3>
               <p className="text-sm text-gray-400 leading-relaxed mb-6">
                 The Planner Agent acts as a Staff Engineer, explicitly wrapping LLM outputs in robust `try/except` loops and enforcing strict sandboxed execution directories.
@@ -336,7 +336,7 @@ export default function Home() {
             </div>
 
             <div className="group p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.06] hover:border-blue-500/30 transition-all flex flex-col h-full">
-              <Workflow className="h-8 w-8 text-blue-400 mb-6" />
+              <Workflow aria-hidden="true" className="h-8 w-8 text-blue-400 mb-6" />
               <h3 className="text-xl font-semibold text-white mb-3">Tier 3: Correction</h3>
               <p className="text-sm text-gray-400 leading-relaxed mb-6">
                 The Swarm Orchestrator intercepts runtime tracebacks and routes syntax errors back into a closed-loop self-healing mechanism, recovering silently without human input.
@@ -361,7 +361,7 @@ export default function Home() {
             {/* Backend */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
-                <Terminal className="h-5 w-5 text-gray-500" />
+                <Terminal aria-hidden="true" className="h-5 w-5 text-gray-500" />
                 <span>1. Helix Engine (Backend)</span>
               </h3>
               <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-xl p-6 font-mono text-sm text-gray-300">
@@ -375,7 +375,7 @@ export default function Home() {
             {/* Frontend */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
-                <Terminal className="h-5 w-5 text-gray-500" />
+                <Terminal aria-hidden="true" className="h-5 w-5 text-gray-500" />
                 <span>2. Diagnostic Lab (Frontend)</span>
               </h3>
               <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-xl p-6 font-mono text-sm text-gray-300">
@@ -394,7 +394,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <div className="inline-flex items-center justify-center p-3 bg-purple-500/10 rounded-xl mb-6">
-                <Terminal className="h-6 w-6 text-purple-400" />
+                <Terminal aria-hidden="true" className="h-6 w-6 text-purple-400" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
                 2. Diagnostic Lab (Frontend)
@@ -423,7 +423,7 @@ export default function Home() {
                   <div className="ml-4">
                     <h4 className="text-white font-medium mb-1">Real-Time Traceback Triage</h4>
                     <p className="text-sm text-gray-500 leading-relaxed">
-                      Watch the self-healing loop in action. The frontend captures Python exceptions live, streams the LLM's patching strategy, and updates the UI when tests pass.
+                      Watch the self-healing loop in action. The frontend captures Python exceptions live, streams the LLM&apos;s patching strategy, and updates the UI when tests pass.
                     </p>
                   </div>
                 </div>
@@ -486,7 +486,7 @@ export default function Home() {
         {/* Contact Us Section */}
         <section id="contact" className="max-w-7xl mx-auto px-6 py-24 border-t border-white/[0.06]">
           <div className="max-w-2xl mx-auto text-center mb-12">
-            <Mail className="h-12 w-12 text-emerald-400 mx-auto mb-6" />
+            <Mail aria-hidden="true" className="h-12 w-12 text-emerald-400 mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Get in Touch</h2>
             <p className="text-gray-400 text-lg font-light">
               Interested in deploying the Helix Ecosystem at an enterprise scale? Have questions about the Swarm Orchestrator? Reach out to us.
@@ -554,7 +554,7 @@ export default function Home() {
                 className="w-full bg-white text-black font-semibold rounded-lg px-4 py-4 hover:bg-gray-200 transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span>{status === 'loading' ? 'Sending...' : status === 'success' ? 'Sent!' : 'Send Message'}</span>
-                {status !== 'loading' && status !== 'success' && <ArrowRight className="h-4 w-4" />}
+                {status !== 'loading' && status !== 'success' && <ArrowRight aria-hidden="true" className="h-4 w-4" />}
               </button>
             </form>
           </div>
