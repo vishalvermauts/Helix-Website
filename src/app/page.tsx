@@ -28,6 +28,54 @@ const codeLines = [
   "✓ Agent successfully deployed to /workspace/custom_agents."
 ];
 
+const HelixAnimation = () => {
+  return (
+    <div className="absolute inset-0 flex flex-col items-center justify-center opacity-80 pointer-events-none">
+      <div className="flex space-x-3 md:space-x-5">
+        {Array.from({ length: 14 }).map((_, i) => {
+          const delay = i * 0.15;
+          return (
+            <div key={i} className="relative h-32 md:h-48 w-px bg-gradient-to-b from-transparent via-white/[0.1] to-transparent flex justify-center">
+              <motion.div
+                className="absolute w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]"
+                animate={{
+                  top: ["0%", "100%", "0%"],
+                  scale: [1, 0.3, 1],
+                  opacity: [1, 0.1, 1],
+                  zIndex: [10, 0, 10]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay,
+                }}
+                style={{ marginTop: '-4px' }}
+              />
+              <motion.div
+                className="absolute w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.8)]"
+                animate={{
+                  top: ["100%", "0%", "100%"],
+                  scale: [0.3, 1, 0.3],
+                  opacity: [0.1, 1, 0.1],
+                  zIndex: [0, 10, 0]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay,
+                }}
+                style={{ marginTop: '-4px' }}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 const TerminalAnimation = () => {
   const [lines, setLines] = useState<string[]>([]);
 
@@ -455,26 +503,19 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex-1 p-6 relative">
-                {/* Abstract Node Graph */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                  <svg viewBox="0 0 400 400" className="w-full h-full stroke-emerald-500/50" fill="none" strokeWidth="2">
-                    <circle cx="200" cy="200" r="100" strokeDasharray="4 4" className="animate-[spin_20s_linear_infinite]" />
-                    <circle cx="200" cy="200" r="150" strokeDasharray="2 6" className="animate-[spin_30s_linear_infinite_reverse]" />
-                    <path d="M200 100 L286 150 L286 250 L200 300 L114 250 L114 150 Z" className="stroke-purple-500/50" />
-                    <circle cx="200" cy="100" r="8" className="fill-purple-500" />
-                    <circle cx="286" cy="150" r="8" className="fill-emerald-500" />
-                    <circle cx="286" cy="250" r="8" className="fill-cyan-500" />
-                    <circle cx="200" cy="300" r="8" className="fill-rose-500" />
-                    <circle cx="114" cy="250" r="8" className="fill-blue-500" />
-                    <circle cx="114" cy="150" r="8" className="fill-amber-500" />
-                    <circle cx="200" cy="200" r="12" className="fill-white" />
-                  </svg>
-                </div>
+                {/* Helix DNA Animation */}
+                <HelixAnimation />
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="bg-[#111]/80 backdrop-blur border border-white/[0.08] p-4 rounded-xl">
-                    <div className="text-xs font-mono text-emerald-400 mb-2">[Memory Sync] 100%</div>
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="text-xs font-mono text-emerald-400 flex items-center space-x-2">
+                        <Activity className="w-3 h-3 animate-pulse" />
+                        <span>[System] Helix Engine Sync</span>
+                      </div>
+                      <div className="text-xs font-mono text-cyan-400">100%</div>
+                    </div>
                     <div className="h-2 w-full bg-white/[0.05] rounded-full overflow-hidden">
-                      <div className="h-full bg-emerald-400 w-full animate-pulse"></div>
+                      <div className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 w-full animate-pulse"></div>
                     </div>
                   </div>
                 </div>
