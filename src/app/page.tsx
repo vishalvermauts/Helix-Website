@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Terminal, Shield, Workflow, Code2, Zap, ArrowRight, Bug, Brain, Activity, Mail, Cpu, Globe, Network, Bot } from "lucide-react";
+import { Terminal, Shield, Workflow, Code2, Zap, ArrowRight, Bug, Brain, Activity, Mail, Cpu, Globe, Network, Bot, Monitor } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -405,33 +405,47 @@ export default function Home() {
             <p className="text-gray-400 max-w-2xl text-lg font-light">The architecture is decoupled. Spin up the headless backend, then deploy the standalone glassmorphic diagnostic dashboard.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Backend */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
                 <Terminal aria-hidden="true" className="h-5 w-5 text-gray-500" />
-                <span>1. Helix Engine (Backend)</span>
+                <span>1. Helix Engine</span>
               </h3>
               <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-xl p-6 font-mono text-sm text-gray-300">
-                <p className="text-gray-500 mb-2"># Magical 1-Click Interactive Setup</p>
+                <p className="text-gray-500 mb-2"># Headless Swarm Orchestrator</p>
                 <p>git clone https://github.com/vishalvermauts/Helix-Engine.git</p>
                 <p>cd Helix-Engine</p>
                 <p>bash setup.sh</p>
               </div>
             </div>
 
+            {/* Gateway */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
+                <Network aria-hidden="true" className="h-5 w-5 text-gray-500" />
+                <span>2. HelixFlow Gateway</span>
+              </h3>
+              <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-xl p-6 font-mono text-sm text-gray-300">
+                <p className="text-gray-500 mb-2"># Enterprise API Proxy & Router</p>
+                <p>git clone https://github.com/vishalvermauts/HelixFlow.git</p>
+                <p>cd HelixFlow</p>
+                <p>pip install -r requirements.txt</p>
+                <p>uvicorn helixflow_gateway.bootstrap:create_app --port 8000</p>
+              </div>
+            </div>
+
             {/* Frontend */}
             <div className="space-y-6">
               <h3 className="text-xl font-semibold text-white flex items-center space-x-2">
-                <Terminal aria-hidden="true" className="h-5 w-5 text-gray-500" />
-                <span>2. Diagnostic Lab (Frontend)</span>
+                <Monitor aria-hidden="true" className="h-5 w-5 text-gray-500" />
+                <span>3. Diagnostic Lab</span>
               </h3>
               <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-xl p-6 font-mono text-sm text-gray-300">
-                <p className="text-gray-500 mb-2"># Clone the standalone UI and serve</p>
+                <p className="text-gray-500 mb-2"># Visual Command Center UI</p>
                 <p>git clone https://github.com/vishalvermauts/Helix-Brain-Diagnostic-Lab.git</p>
                 <p>cd Helix-Brain-Diagnostic-Lab</p>
                 <p>npx serve -l 3000</p>
-                <p className="text-emerald-400 mt-4"># Connect via the auto-generated PyNgrok URL!</p>
               </div>
             </div>
           </div>
@@ -445,7 +459,7 @@ export default function Home() {
                 <Terminal aria-hidden="true" className="h-6 w-6 text-purple-400" />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-                2. Diagnostic Lab (Frontend)
+                3. Diagnostic Lab (Frontend)
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed mb-6 font-light">
                 The Helix Brain Diagnostic Lab acts as the visual command center for the entire agentic swarm. It provides real-time, high-fidelity observability into how the AI thinks, plans, and executes code.
@@ -610,8 +624,9 @@ export default function Home() {
             © 2026 Helix Engine. Open-source under the MIT License.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="https://github.com/vishalvermauts/Helix-Engine" className="text-gray-500 hover:text-white transition-colors">Backend GitHub</a>
-            <a href="https://github.com/vishalvermauts/Helix-Brain-Diagnostic-Lab" className="text-gray-500 hover:text-white transition-colors">Frontend GitHub</a>
+            <a href="https://github.com/vishalvermauts/Helix-Engine" className="text-gray-500 hover:text-white transition-colors">Backend</a>
+            <a href="https://github.com/vishalvermauts/HelixFlow" className="text-gray-500 hover:text-white transition-colors">Gateway</a>
+            <a href="https://github.com/vishalvermauts/Helix-Brain-Diagnostic-Lab" className="text-gray-500 hover:text-white transition-colors">Frontend</a>
           </div>
         </div>
       </footer>

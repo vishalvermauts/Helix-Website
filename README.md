@@ -1,6 +1,6 @@
 # Helix Ecosystem Website
 
-This is the sleek, Vercel-ready promotional landing page for the **Helix Engine** and the **Helix Brain Diagnostic Lab**. It is built using the industry-standard modern web stack to achieve an ultra-premium Dark Obsidian & Neon Minimalist aesthetic.
+This is the sleek, Vercel-ready promotional landing page for the **Helix Ecosystem**, including the **Helix Engine**, the **HelixFlow Gateway**, and the **Helix Brain Diagnostic Lab**. It is built using the industry-standard modern web stack to achieve an ultra-premium Dark Obsidian & Neon Minimalist aesthetic.
 
 ## Tech Stack
 - **Framework:** Next.js 14 (App Router)
